@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table class="table table-striped table-hover" width="100%" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" align="center">
+        <thead style="border-radius: 10px 10px 10px 10px; border-color: #a19898">
+            <tr style="border-radius: 10px 10px 10px 10px; border-color: #a19898">
+                <th><p align="center">ID</p></th>
+                <th><p align="center">Name</p></th>
+                <th><p align="center">Surname</p></th>
+                <th><p align="center">Username</p></th>
+                <th><p align="center">Role</p></th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:object="${activeUser}">
+                <tr class="rowTable3">
+                    <td th:text="${activeUser.id}" align="center"></td>
+                    <td th:text="${activeUser.name}" align="center"></td>
+                    <td th:text="${activeUser.surname}" align="center"></td>
+                    <td th:text="${activeUser.username}" align="center"></td>
+                    <td th:text="${activeUser.getRolesToString()}" align="center"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

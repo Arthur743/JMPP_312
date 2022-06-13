@@ -1,0 +1,27 @@
+Aksyonova Ekaterina
+Aktuganova Diana
+Akulova Elizaveta
+Andreeva Elina
+Amandosova Faina
+------------------------------------------------------------------------------------------------------------------------
+insert users (name, surname, username, password) VALUES ('Ekaterina', 'Aksyonova', 'ea', '1');
+insert users (name, surname, username, password) VALUES ('Diana', 'Aktuganova', 'da', '2');
+insert users (name, surname, username, password) VALUES ('Faina', 'Amandosova', 'fa', '3');
+insert roles (role_name) VALUE ('ADMIN');
+insert roles (role_name) VALUE ('USER');
+insert users_roles (id_user, id_role) VALUE (1, 1);
+insert users_roles (id_user, id_role) VALUE (1, 2);
+insert users_roles (id_user, id_role) VALUE (2, 2);
+insert users_roles (id_user, id_role) VALUE (3, 2);
+------------------------------------------------------------------------------------------------------------------------
+insert users (name, surname, username, password) VALUES ('Elizaveta', 'Akulova', 'ea', '4');
+insert users (name, surname, username, password) VALUES ('Elina', 'Andreeva', 'ea', '5');
+------------------------------------------------------------------------------------------------------------------------
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+------------------------------------------------------------------------------------------------------------------------
+TypedQuery<Role> q = entityManager.createQuery("select role from Role role where role.id = :id", Role.class);
+q.setParameter("id", id);
+Role result = q.getResultList().stream().filter(role -> role.getId() == id).findAny().orElse(null);
+roleResult.add(result);
+------------------------------------------------------------------------------------------------------------------------

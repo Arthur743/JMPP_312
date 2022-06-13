@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>New user</title>
+    </head>
+    <body>
+        <table class="table table-striped table-hover" width="100%" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" align="center">
+            <thead style="border-radius: 10px 10px 10px 10px; border-color: #a19898">
+                <tr style="border-radius: 10px 10px 10px 10px; border-color: #a19898">
+                    <th><p align="center">ID</p></th>
+                    <th><p align="center">Name</p></th>
+                    <th><p align="center">Surname</p></th>
+                    <th><p align="center">Username</p></th>
+                    <th><p align="center">Role</p></th>
+                </tr>
+            </thead>
+            <tbody>
+            <form method="POST" th:action="@{/admin/users}" th:object="${user}">
+                <tr class="rowTable3">
+                    <td><input type="text" th:field="*{id}" id="idCreate" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                    <td><input type="text" th:field="*{name}" id="nameCreate" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                    <td><input type="text" th:field="*{surname}" id="surnameCreate" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                    <td><input type="text" th:field="*{username}" id="usernameCreate" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                    <td th:field="*{getRolesToString()}" align="center"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Save" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                </tr>
+            </form>
+            </tbody>
+        </table>
+    </body>
+</html>
+
